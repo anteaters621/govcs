@@ -1,0 +1,45 @@
+<project name="govcs" basedir=".">
+	<description>
+		Builds and zips distribution files to ./dist/. Use -Dversion=xxx to set version, -Dgoos=xxx to set target platform.
+	</description>
+
+	<property name="version" value="SNAPSHOT" />
+	<property name="goos" value="linux" />
+
+	<target name="dist_all" description="dist for linux, windows and darwin">
+		<antcall target="dist">
+			<param name="goos" value="linux" />
+		</antcall>
+		<antcall target="dist">
+			<param name="goos" value="windows" />
+		</antcall>
+		<antcall target="dist">
+			<param name="goos" value="darwin" />
+		</antcall>
+	</target>
+
+	<target name="build" description="build for goos platform">
+		<echo>Building to dist/${goos}</echo>
+		<exec executable="go">
+			<env key="GOOS" value="${goos}" />
+			<env key="CGO_ENABLED" value="0" />
+
+			<arg value="build" />
+			<arg value="-o" />
+			<arg value="dist/${goos}/" />
+			<arg value="." />
+		</exec>
+	</target>
+
+	<target name="dist" depends="build" description="build and zip for goos platform">
+		<zip destfile="dist/govcs_${version}_${goos}.zip">
+			<fileset dir="dist/${goos}/" />
+			<fileset dir="." includes="README.md" />
+			<fileset dir="." includes="LICENSE" />
+		</zip>
+	</target>
+
+	<target name="clean" description="remove dist dir">
+		<delete dir="dist" />
+	</target>
+</project>
