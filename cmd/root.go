@@ -62,6 +62,7 @@ var rootCmd = &cobra.Command{
 			FFmpeg:          viper.GetString(ConfigFFmpegPath),
 			FFprobe:         viper.GetString(ConfigFFprobe),
 			IgnoreExtension: viper.GetBool(ConfigIgnoreExtension),
+			Overwrite:       viper.GetBool(ConfigOverwrite),
 		}
 
 		if config.Verbose {
