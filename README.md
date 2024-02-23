@@ -1,7 +1,7 @@
 # GoVCS
 Creates video contact sheets for quick overview of the content of a video file.
 
-
+![resultimage](./doc/SampleVideo_1280x720_5mb.mp4.jpg)
 
 ## Usage
 
