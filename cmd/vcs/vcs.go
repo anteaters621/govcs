@@ -213,7 +213,7 @@ func formatTimestamp(seconds int) string {
 	minutes := seconds / 60
 	seconds = seconds % 60
 	if minutes > 60 {
-		hours := seconds / 60
+		hours := minutes / 60
 		result.WriteString(strconv.Itoa(hours))
 		result.WriteString(":")
 		minutes = minutes % 60
