@@ -12,7 +12,7 @@ import (
 	"strings"
 )
 
-const Version = "1.0.1"
+const Version = "1.0.2"
 
 const (
 	ConfigNumber          = "number"
@@ -34,7 +34,7 @@ const (
 )
 
 // ValidExtensions Don't try to vcs files that don't have one of these extensions
-var ValidExtensions = [...]string{"3pg", "amv", "asf", "avi", "flv", "gif", "gifv", "m4v", "mkv", "mp4", "mpg", "mpeg", "mts", "ts", "ogv", "ogg", "rm", "rmvb", "vob", "webm", "wmv", "yuv"}
+var ValidExtensions = [...]string{"3pg", "amv", "asf", "avi", "flv", "gif", "gifv", "m4v", "mkv", "mov", "mp4", "mpg", "mpeg", "mts", "ts", "ogv", "ogg", "rm", "rmvb", "vob", "webm", "wmv", "yuv"}
 
 var (
 	cfgFile string
